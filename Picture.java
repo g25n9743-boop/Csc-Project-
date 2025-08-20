@@ -1,13 +1,28 @@
 import javax.swing.*;
 import java.awt.*;
+import javax.swing.JLabel;
 
 public class Picture {
+	
+	
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Rainbow Neighbours");
+        
+		int H_score = 0;
+		int C_score = 0;
+		
+		JFrame frame = new JFrame("Rainbow Neighbours");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 500);
         frame.setLayout(null);
 
+		JLabel score = new JLabel();
+		score.setFont(new Font("Arail" , Font.BOLD, 40));
+		score.setForeground(Color.BLACK);
+		score.setText(String.format("Highest Score : %02d   Your Score : %02d", H_score, C_score));
+		score.setHorizontalAlignment(JLabel.RIGHT);
+		score.setVerticalAlignment(JLabel.TOP);
+		
+		score.setBounds(900,100,800, 800);
         JPanel gridPanel = new JPanel(new GridLayout(6, 6, 5, 5));
         
         gridPanel.setBounds(20,300,580,580); 
@@ -32,7 +47,7 @@ public class Picture {
         background.setLayout(null); 
 
 
-
+		background.add(score);
         background.add(gridPanel);
         frame.add(gridPanel);
         frame.setVisible(true);
@@ -40,5 +55,3 @@ public class Picture {
     
     
 }
-
-
